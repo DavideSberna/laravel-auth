@@ -27,7 +27,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
-                        <img class="" src="{{ asset('resources/img/dc-logo.png') }}" alt="">
+                        <img class="img-logo" src="{{ asset('/img/skills-portfolio-logo-vector.png') }}" alt="">
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>

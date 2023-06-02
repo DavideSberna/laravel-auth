@@ -1,8 +1,10 @@
 <?php
 
+
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\WelcomeController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +17,17 @@ use App\Http\Controllers\Admin\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
+    Route::get('/edit/{post}', [DashboardController::class, 'edit'])->name('edit');
+    Route::put('/update/{post}', [DashboardController::class, 'update'])->name('update');
+    
 
 });
+
+
+
 
 require __DIR__.'/auth.php';
