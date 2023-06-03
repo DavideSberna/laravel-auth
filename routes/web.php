@@ -24,6 +24,9 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/edit/{post}', [DashboardController::class, 'edit'])->name('edit');
     Route::put('/update/{post}', [DashboardController::class, 'update'])->name('update');
+    Route::get('/posts', [DashboardController::class, 'showAll'])->name('posts');
+    Route::get('/categories', [DashboardController::class, 'showAll'])->name('categories');
+    Route::get('/users', [DashboardController::class, 'showAll'])->name('users');
     
 
 });

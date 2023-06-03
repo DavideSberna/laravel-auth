@@ -52,6 +52,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Users') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/') }}">{{ __('All') }}</a>
+                        </li>
                         @endauth
                     </ul>
 
