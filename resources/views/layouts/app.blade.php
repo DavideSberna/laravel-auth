@@ -44,16 +44,16 @@
                         </li>
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Post') }}</a>
+                            <a class="nav-link" href="{{ route('admin.posts') }}">{{ __('Post') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Category') }}</a>
+                            <a class="nav-link" href="{{ route('admin.categories') }}">{{ __('Category') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Users') }}</a>
+                            <a class="nav-link" href="{{ route('admin.users') }}">{{ __('Users') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('All') }}</a>
+                            <a class="nav-link" href="{{ route('admin.all') }}">{{ __('All') }}</a>
                         </li>
                         @endauth
                     </ul>

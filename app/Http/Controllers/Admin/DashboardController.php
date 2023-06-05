@@ -15,7 +15,9 @@ class DashboardController extends Controller
         $postCount = Post::count();
         $categoryCount = Category::count();
         $userCount = User::count();
-        return view('admin.dashboard', compact('postCount', 'categoryCount', 'userCount'));
+        $allTable = compact('postCount', 'categoryCount', 'userCount');
+        //dd($allTable);
+        return view('admin.dashboard', compact('postCount', 'categoryCount', 'userCount', 'allTable'));
     }
 
 
@@ -25,13 +27,23 @@ class DashboardController extends Controller
         //dd($current);
 
         if ($current === 'admin/posts') {
-            return view('admin.posts');
+            $postTable = Post::all();
+            return view('admin.posts', compact('postTable'));
 
         } elseif ($current === 'admin/categories') {
-            return view('admin.categories');
+            $categoryTable = Category::All();
+            return view('admin.categories', compact('categoryTable'));
 
         } elseif ($current === 'admin/users') {
-            return view('admin.users');
+            $userTable = User::select('id', 'name', 'email', 'created_at', 'updated_at')->get();
+            return view('admin.users', compact('userTable'));
+
+        } elseif ($current === 'admin/all') {
+            $postTable = Post::all();
+            $categoryTable = Category::All();
+            $userTable = User::select('id', 'name', 'email', 'created_at', 'updated_at')->get();
+            $allTable = compact('postTable', 'categoryTable', 'userTable');
+            return view('admin.all', compact('allTable'));
         }
     }
 
