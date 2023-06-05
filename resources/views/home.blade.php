@@ -18,20 +18,11 @@
         <div class="col-lg-8">
             <!-- Nested row for non-featured blog posts-->
             <div class="row">
-                @foreach ( $contents as $content)
-                <div class="col-lg-6">
-                    <!-- Blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <h2 class="card-title h4">{{$content->title}}</h2>
-                            <div class="small text-muted">{{$content->created_at}}</div>
-                            <p class="card-text">{{$content->description}}</p>
-                            <a class="btn btn-primary" href="{{ route('show', $content->id) }}">Leggi di più</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+                 
+
+
+
+
             </div>
             <!-- Pagination-->
 
@@ -46,9 +37,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <ul class="list-unstyled mb-0">
-                                @foreach ($categories as $category)
-                                <li><a href="#">{{$category->name}}</a></li>
-                                @endforeach
+                               
                             </ul>
                         </div>
                     </div>

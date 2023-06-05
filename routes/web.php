@@ -4,6 +4,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,16 +19,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
-Route::get('/show/{post}', [WelcomeController::class, 'show'])->name('show');
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/project/edit/{post}', [DashboardController::class, 'edit'])->name('edit');
-    Route::put('/project/update/{post}', [DashboardController::class, 'update'])->name('update');
-    Route::get('/posts', [DashboardController::class, 'showAll'])->name('posts');
-    Route::get('/categories', [DashboardController::class, 'showAll'])->name('categories');
-    Route::get('/users', [DashboardController::class, 'showAll'])->name('users');
-    Route::get('/all', [DashboardController::class, 'showAll'])->name('all');
+    Route::resource('posts', PostController::class)->parameters(['posts' => 'post:slug']);
+    
     
 
 });

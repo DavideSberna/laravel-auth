@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
-use App\Models\Category;
-
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -12,9 +10,8 @@ class WelcomeController extends Controller
     {
         // Codice per ottenere il contenuto che desideri visualizzare nella route principale
         $contents = Post::all();
-        $categories = Category::all();
 
-        return view('home', compact('contents', 'categories'));
+        return view('home', compact('contents'));
     }
 
     public function show(Post $post)

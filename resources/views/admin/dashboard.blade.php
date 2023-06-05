@@ -22,86 +22,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="mt-5">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Tabella</th>
-                            <th>Numero</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a class="link-underline-light" href="{{ route('admin.posts') }}">Posts</a></td>
-                            <td>{{ $postCount }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="mt-5">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Tabella</th>
-                            <th>Numero</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a class="link-underline-light" href="{{ route('admin.categories') }}">Categories</a></td>
-                            <td>{{ $categoryCount }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="mt-5">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Tabella</th>
-                            <th>Numero</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a class="link-underline-light" href="{{ route('admin.users') }}">Users</a></td>
-                            <td>{{ $userCount }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <div class="mt-5">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Tabella</th>
-                            <th>Numero</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a class="link-underline-light" href="{{ route('admin.posts') }}">Post</a></td>
-                            <td>{{ $allTable['postCount'] }}</td>
-                        </tr>
-                        <tr>
-                            <td><a class="link-underline-light" href="{{ route('admin.categories') }}">Category</a></td>
-                            <td>{{ $allTable['categoryCount'] }}</td>
-                        </tr>
-                        <tr>
-                            <td><a class="link-underline-light" href="{{ route('admin.users') }}">Users</a></td>
-                            <td>{{ $allTable['userCount'] }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        
+
+
+    
     </div>
 </div>
 @endsection

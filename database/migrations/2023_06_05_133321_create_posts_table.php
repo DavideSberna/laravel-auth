@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->text('article');
+            $table->string('name');
+            $table->string('title')->unique();
+            $table->string('slug')->unique();
             $table->string('image');
-            $table->integer('vote')->default(0);
+            $table->integer('difficulty');
+            $table->text('description');
+            $table->string('programming_language');
             $table->timestamps();
         });
     }
