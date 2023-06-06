@@ -19,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
+Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('posts', PostController::class)->parameters(['posts' => 'post:slug']);                                     
 
-                                          
 
-
-
+});
 
 require __DIR__.'/auth.php';
