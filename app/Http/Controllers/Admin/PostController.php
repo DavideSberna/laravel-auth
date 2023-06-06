@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Doctrine\DBAL\Schema\View;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class PostController extends Controller
 {
@@ -16,7 +20,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $postTable = Post::select('id','name','title','image','difficulty','description','programming_language','slug')->get();
+        $postTable = Post::select('id','title','image','difficulty','description','programming_language','slug')->paginate(10);
+        //dd($paginateTable);
         return view('admin.posts.index', compact('postTable'));
     }
 
@@ -37,8 +42,14 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StorePostRequest $request)
-    {
-        //
+    {   
+        $data = $request->validated();
+        $slug = Str::slug($data['title'], '-');
+        $data['slug'] = $slug;
+        $post = Post::create($data);
+
+    return redirect()->route('admin.posts.show', $post->slug);
+
     }
 
     /**

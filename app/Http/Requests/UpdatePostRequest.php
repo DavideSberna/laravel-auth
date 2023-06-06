@@ -13,7 +13,7 @@ class UpdatePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,26 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => [
+                'required',
+                Rule::unique('posts')->ignore($this->posts),
+                'max:150',
+                'min:3'
+            ],
+            
+            'slug' => 'required|unique:posts|max:255',
+            'image' => 'nullable',
+            'description' => 'nullable',
+            'programming_language' => 'nullable',
+            'difficulty' => 'nullable',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'il titolo è obbligatorio',
+
         ];
     }
 }

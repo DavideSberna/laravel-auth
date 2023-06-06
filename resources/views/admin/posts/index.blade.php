@@ -23,7 +23,6 @@
                     @foreach($postTable as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
-                        <td>{{ $post->name }}</td>
                         <td>{{ $post->title }}</td>
                         <td><img class="post-img-size" src="{{ $post->image }}" alt="{{ $post->title }}"></td>
                         <td>{{ $post->difficulty }}</td>
@@ -47,6 +46,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="pagination">
+                {{$postTable->links('pagination::bootstrap-4')}}
+            </div>
         </div>
     </div>
 @endsection

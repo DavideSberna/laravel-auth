@@ -23,8 +23,8 @@
                     <input type="text" class="form-control" id="image" aria-describedby="emailHelp" value="{{ $post->image }}">
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name/Title</label>
-                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp"  value="{{ $post->name }}">
+                    <label for="title" class="form-label">Name/Title</label>
+                    <input type="text" class="form-control" id="title" aria-describedby="emailHelp"  value="{{ $post->title }}">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>

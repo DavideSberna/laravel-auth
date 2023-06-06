@@ -44,16 +44,7 @@
                         </li>
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.posts.index') }}">{{ __('Post') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">{{ __('Category') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">{{ __('Users') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">{{ __('All') }}</a>
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                         </li>
                         @endauth
                     </ul>
@@ -95,7 +86,61 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="{{ !Route::is('home') ? 'd-flex' : '' }}">
+        @if(!Route::is('home'))
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navigator align-items-start">
+            <div class="mt-4" id="navbarNav">
+                <ul class="navba">
+                    <li class="nav-item d-flex align-items-center pt-3">
+                        <div class="icon-container d-flex justify-content-center">
+                            <i class="fa-solid fa-house-chimney text-white fs-4"></i>
+                        </div>
+                        <a class="nav-link text-white ms-2" href="{{ url('/') }}">{{ __('Home') }}</a>
+                    </li>
+                    <li class="nav-item pt-3">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-container d-flex justify-content-center">
+                                <i class="fa-solid fa-address-card text-white fs-4"></i>
+                            </div>
+                            <a class="nav-link text-white ms-2" href="">{{ __('Post') }}</a>
+                        </div>
+                        <ul class="navbar-nav flex-column sub-menu ms-5">
+                            <li class="nav-item p-0 m-0">
+                                <a class="nav-link" href="{{ route('admin.posts.index') }}">{{ __('All Posts') }}</a>
+                            </li>
+                            <li class="nav-item p-0 m-0">
+                                <a class="nav-link" href="{{ route('admin.posts.create') }}">{{ __('Add New Post') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center pt-3">
+                        <div class="icon-container d-flex justify-content-center">
+                            <i class="fa-solid fa-clipboard-list text-white fs-4"></i>
+                        </div>
+                        <a class="nav-link text-white ms-2" href="">{{ __('Category') }}</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center pt-3"> 
+                        <div class="icon-container d-flex justify-content-center">
+                            <i class="fa-solid fa-users text-white fs-4"></i>
+                        </div>
+                        <a class="nav-link text-white ms-2" href="">{{ __('Users') }}</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center pt-3">
+                        <div class="icon-container d-flex justify-content-center">
+                            <i class="fa-solid fa-globe text-white fs-4"></i>
+                        </div>
+                        <a class="nav-link text-white ms-2" href="">{{ __('All') }}</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        @else
+        @endif
+
+            
             @yield('content')
         </main>
     </div>

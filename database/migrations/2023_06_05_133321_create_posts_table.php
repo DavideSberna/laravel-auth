@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('title')->unique();
-            $table->string('slug')->unique();
-            $table->string('image');
-            $table->integer('difficulty');
-            $table->text('description');
-            $table->string('programming_language');
+            $table->string('slug')->unique()->nullable();
+            $table->string('image')->nullable();
+            $table->integer('difficulty')->nullable();
+            $table->text('description')->nullable();
+            $table->string('programming_language')->nullable();
             $table->timestamps();
         });
     }

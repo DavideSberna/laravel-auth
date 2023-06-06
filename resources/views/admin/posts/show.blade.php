@@ -11,7 +11,7 @@
                 <div class="card">
                     <img src="{{$post->image}}" class="card-img-top" alt="{{$post->title}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{$post->name}}</h5>
+                        <h5 class="card-title">{{$post->title}}</h5>
                         <p class="card-text">Cosa ho fatto: {{$post->description}}</p>
                         <p class="card-text">Linguaggio utilizzato: {{$post->programming_language}}</p>
                         <p class="card-text">Diffioltà: {{$post->difficulty}}</p>
