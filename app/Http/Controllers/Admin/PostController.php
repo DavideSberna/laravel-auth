@@ -47,8 +47,8 @@ class PostController extends Controller
         $slug = Str::slug($data['title'], '-');
         $data['slug'] = $slug;
         if ($request->hasFile('image')) {
-            $image_path = Storage::put('uploads', $request->image);
-            $data['image'] = Storage::url($image_path);
+            $image_path = Storage::put('images', $request->image);
+            $data['image'] = asset('storage/' . $image_path);
         }
         $post = Post::create($data);
         //dd($data);
@@ -103,6 +103,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if ($post->image) {
+            $datogliere = "http://127.0.0.1:8000/storage/";
+            $imagetoremove = str_replace($datogliere, '', $post->image);
+            //dd($imagetoremove);
+            Storage::delete($imagetoremove);
+        }
         
         $post->delete();
         return redirect()->route('admin.posts.index')->with('message', "$post->title deleted successfully.");

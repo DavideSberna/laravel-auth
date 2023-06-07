@@ -14,7 +14,7 @@
             @endif
             <div class="col">
                 <div class="card">
-                    <img src="{{ $post->image}}" class="card-img-top" alt="{{$post->title}}">
+                    <img src="{{ $post->image }}" class="card-img-top" alt="{{$post->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$post->title}}</h5>
                         <p class="card-text">Cosa ho fatto: {{$post->description}}</p>
