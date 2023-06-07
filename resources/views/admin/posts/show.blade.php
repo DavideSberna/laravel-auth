@@ -7,9 +7,14 @@
             <div class="mb-4 icon">
                 <a class="link-offset-2 link-underline link-underline-opacity-0 text-secondary" href="{{ route('admin.posts.index') }}"><i class="fa-solid fa-circle-chevron-left text-secondary"></i></a> 
             </div>
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
             <div class="col">
                 <div class="card">
-                    <img src="{{$post->image}}" class="card-img-top" alt="{{$post->title}}">
+                    <img src="{{ $post->image}}" class="card-img-top" alt="{{$post->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$post->title}}</h5>
                         <p class="card-text">Cosa ho fatto: {{$post->description}}</p>

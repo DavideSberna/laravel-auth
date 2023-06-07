@@ -11,26 +11,35 @@
         </div>
         <div class="mb-3">
             <h3>Aggiungi nuovi progetti</h3>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="">
+                    @foreach ($errors->all() as $error)
+                        <li class="list-group-item">-{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
         <div class="col-6">
-            <form action="{{ route('admin.posts.store') }}" method="POST">
+            <form action="{{ route('admin.posts.store') }}" enctype="multipart/form-data" method="POST" >
                 @csrf
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Name/Title</label>
-                    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" value="{{ old('title') }}">
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" aria-describedby="emailHelp" value="{{ old('title') }}">
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="text" class="form-control" name="image" id="image" aria-describedby="emailHelp" value="{{ old('image') }}">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" name="image" id="image">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" name="description" id="description" value="{{ old('description') }}">
+                    <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" value="{{ old('description') }}">
                 </div>
                 <div class="mb-3">
                     <label for="programming_language" class="form-label">Programming language</label>
-                    <input type="text" class="form-control" name="programming_language" id="programming_language" value="{{ old('programming_language') }}">
+                    <input type="text" class="form-control @error('programming_language') is-invalid @enderror" name="programming_language" id="programming_language" value="{{ old('programming_language') }}">
                 </div>
                 <div class="mb-3">
                     <label for="difficulty" class="form-label">Difficulty</label>

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePostRequest extends FormRequest
 {
@@ -31,7 +32,6 @@ class UpdatePostRequest extends FormRequest
                 'min:3'
             ],
             
-            'slug' => 'required|unique:posts|max:255',
             'image' => 'nullable',
             'description' => 'nullable',
             'programming_language' => 'nullable',

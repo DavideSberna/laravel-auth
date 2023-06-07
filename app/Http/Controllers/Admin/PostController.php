@@ -46,7 +46,12 @@ class PostController extends Controller
         $data = $request->validated();
         $slug = Str::slug($data['title'], '-');
         $data['slug'] = $slug;
+        if ($request->hasFile('image')) {
+            $image_path = Storage::put('uploads', $request->image);
+            $data['image'] = Storage::url($image_path);
+        }
         $post = Post::create($data);
+        //dd($data);
 
     return redirect()->route('admin.posts.show', $post->slug);
 
@@ -85,9 +90,9 @@ class PostController extends Controller
     {
         $data= $request->all();
         $post->update($data);
-        dd($post);
+        //dd($post);
 
-        return redirect()->route('admin.posts.show', $post->slug);
+        return redirect()->route('admin.posts.show', $post->slug)->with('message', "$post->title Il post è stato aggiornato con successo");
     }
 
     /**
@@ -98,6 +103,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        
+        $post->delete();
+        return redirect()->route('admin.posts.index')->with('message', "$post->title deleted successfully.");
     }
 }

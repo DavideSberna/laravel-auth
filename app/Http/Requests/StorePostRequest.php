@@ -27,8 +27,8 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'required|unique:posts|max:150|min:3',
             'image' => 'nullable',
-            'description' => 'nullable',
-            'programming_language' => 'nullable',
+            'description' => 'required|min:3',
+            'programming_language' => 'required|max:20|min:1',
             'difficulty' => 'nullable',
         ];
     }
@@ -36,8 +36,18 @@ class StorePostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'il titolo è obbligatorio',
 
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.unique:posts' => 'Questo titolo è già stato utilizzato',
+            'title.max' => 'Il titolo deve essere inferiore a 150 caratteri',
+            'title.min' => 'Il titolo deve essere maggiore di 3 caratteri',
+
+            'description.required' => 'La descrizione è obbligatoria',
+            'description.min' => 'La descrizione deve essere maggiore di 3 caratteri',
+            
+            'programming_language.required' => 'Il linguaggio utilizzato è obbligatorio',
+            'programming_language.max' => 'Il linguaggio utilizzato deve essere inferiore di 20 caratteri',
+            'programming_language.min' => 'Il linguaggio utilizzato deve essere maggiore di 3 caratteri',
         ];
     }
 }

@@ -3,6 +3,7 @@
 
 
 
+ 
   
  <div class="container">
         <div class="mt-5 d-flex align-items-center"> 
@@ -38,9 +39,13 @@
                             <div>
                                 <span class="badge text-bg-success"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="{{ route('admin.posts.edit', $post->slug) }}">Edit</a></span>
                             </div>
-                            <div>
-                                <span class="badge text-bg-danger"><a class="link-offset-2 link-underline link-underline-opacity-0 text-white" href="">Delete</a></span>
-                            </div>
+                            <form action="{{ route('admin.posts.destroy', $post->slug) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type='submit' class="delete-button btn btn-danger text-white"
+                                    data-item-title="{{ $post->slug }}"> <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
@@ -50,5 +55,6 @@
                 {{$postTable->links('pagination::bootstrap-4')}}
             </div>
         </div>
+        @include('partials.modal-delete')
     </div>
 @endsection

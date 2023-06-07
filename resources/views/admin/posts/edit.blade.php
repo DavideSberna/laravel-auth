@@ -19,24 +19,24 @@
                 @method('PUT')
         
                 <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="text" class="form-control" id="image" aria-describedby="emailHelp" value="{{ $post->image }}">
+                    <label for="title" class="form-label">Name/Title</label>
+                    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp"  value="{{ $post->title }}">
                 </div>
                 <div class="mb-3">
-                    <label for="title" class="form-label">Name/Title</label>
-                    <input type="text" class="form-control" id="title" aria-describedby="emailHelp"  value="{{ $post->title }}">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" class="form-control" name="image" id="image" aria-describedby="emailHelp" value="{{ $post->image }}">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description"  value="{{ $post->description }}">
+                    <input type="text" class="form-control" name="description" id="description"  value="{{ $post->description }}">
                 </div>
                 <div class="mb-3">
                     <label for="programming_language" class="form-label">Programming language</label>
-                    <input type="text" class="form-control" id="programming_language"  value="{{ $post->programming_language }}">
+                    <input type="text" class="form-control" name="programming_language" id="programming_language"  value="{{ $post->programming_language }}">
                 </div>
                 <div class="mb-3">
                     <label for="difficulty" class="form-label">Difficulty</label>
-                    <input type="text" class="form-control" id="difficulty"  value="{{ $post->difficulty }}">
+                    <input type="text" class="form-control" name="difficulty" id="difficulty"  value="{{ $post->difficulty }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>
